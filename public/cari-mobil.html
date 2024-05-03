@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sewa & Rental Mobil</title>
+    <!-- Bootstrap Offline -->
+    <link
+      href="./bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+
+    <!-- Style CSS Eksternal -->
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- SweetAlert CDN JS -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+<body>
+    <div class="container-fluid bg-body-tertiary px-0 pb-5">
+        <!-- Navbar -->
+        <nav
+          class="navbar navbar-expand-md bg-body-tertiary pt-4"
+          data-mdb-right="true"
+        >
+          <div class="container">
+            <a
+              class="navbar-brand"
+              href="#landing"
+              style="width: 100px; height: 34px; background-color: #0d28a6"
+            ></a>
+            <span
+              class="smallWidth"
+              style="font-size: 30px; cursor: pointer"
+              onclick="openNav()"
+              >&#9776;</span
+            >
+            <!-- Mobile Side -->
+            <div id="mySidenav" class="sidenav">
+              <div
+                style="
+                  display: flex;
+                  flex-direction: row;
+                  position: relative;
+                  align-items: center;
+                "
+              >
+                <a class="fw-bold" href="">BCR</a>
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+                  >&times;</a
+                >
+              </div>
+              <a href="#service">Our Services</a>
+              <a href="#whyus">Why Us</a>
+              <a href="#testimonial">Testimonial</a>
+              <a href="#faq">FAQ</a>
+              <a href="#">
+                <button
+                  class="btn"
+                  style="
+                    background-color: #5cb85f;
+                    color: white;
+                    border-radius: 3px;
+                    font-weight: 600;
+                  "
+                  onclick="SoonButton()"
+                >
+                  Register
+                </button>
+              </a>
+            </div>
+            <!-- End Of Mobile Side -->
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item mx-2">
+                  <a class="nav-link fw-bold" href="#service">Our Services</a>
+                </li>
+                <li class="nav-item mx-2">
+                  <a class="nav-link fw-bold" href="#whyus">Why Us</a>
+                </li>
+                <li class="nav-item mx-2">
+                  <a class="nav-link fw-bold" href="#testimonial">Testimonial</a>
+                </li>
+                <li class="nav-item mx-2">
+                  <a class="nav-link fw-bold" href="#faq">FAQ</a>
+                </li>
+                <li class="nav-item mx-2">
+                  <button
+                    class="btn"
+                    style="
+                      background-color: #5cb85f;
+                      color: white;
+                      border-radius: 3px;
+                      font-weight: 600;
+                    "
+                    onclick="SoonButton()"
+                  >
+                    Register
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+  
+        <!-- Landing Content -->
+        <div class="container mt-5">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <h1 class="lh-base fw-bold" style="font-size: 2rem" id="landing">
+                Sewa & Rental Mobil Terbaik di kawasan (Lokasimu)
+              </h1>
+              <p class="mt-4 text-wrap">
+                Selamat datang di Binar Car Rental. Kami menyediakan mobil
+                kualitas terbaik dengan harga terjangkau. Selalu siap melayani
+                kebutuhanmu untuk sewa mobil selama 24 jam.
+              </p>
+            </div>
+            <div class="col-md-6">
+              <img src="./assets/img_car.png" class="img-fluid" alt="..." />
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- Form Cari Mobil -->
+    <div class="container" style="width: 75%; position: absolute; left: 0; right: 0; top: 420px;">
+        <div class="card form-car">
+            <div class="form-content row mx-2 my-3" style="font-size: .8rem;">
+                <div class="col-sm p-0 m-1 d-flex flex-column">
+                  <label for="typeDriver" class="mb-2">Tipe Driver</label>
+                  <select class="input-form px-2" id="typeDriver" name="typeDriver" required>
+                    <option selected disabled value="">Pilih Tipe Driver</option>
+                    <option class="input-option">Dengan Sopir</option>
+                    <option class="input-option">Tanpa Sopir (Lepas Kunci)</option>
+                  </select>
+                </div>
+                <div class="col-sm p-0 m-1 d-flex flex-column">
+                  <label for="date" class="mb-2">Tanggal</label>
+                  <input class="input-form px-2" type="date" id="date" name="date" required>
+                </div>
+                <div class="col-sm p-0 m-1 d-flex flex-column">
+                  <label for="time" class="mb-2">Waktu Jemput/Ambil</label>
+                  <select class="input-form px-2" id="time" name="time" required>
+                    <option selected disabled value="">Pilih Waktu</option>
+                    <option>08.00</option>
+                    <option>09.00</option>
+                    <option>10.00</option>
+                    <option>11.00</option>
+                    <option>12.00</option>
+                  </select>
+                </div>
+                <div class="col-sm p-0 m-1 d-flex flex-column">
+                    <label for="passenger" class="mb-2">Jumlah Penumpang (optional)</label>
+                    <input id="passenger" class="input-form px-2" type="text" name="passenger" placeholder="Jumlah Penumpang">
+                </div>
+                <div class="col-2 p-0 m-1 d-flex flex-column" style="width: 92px;">
+                  <p class="mb-2">&nbsp;</p>
+                  <button
+                  class="btn submit"
+                  style="
+                    background-color: #5cb85f;
+                    color: white;
+                    border-radius: 3px;
+                    font-weight: 500;
+                    font-size: .8rem;
+                    height: 36px;
+                  "
+                >
+                  Cari Mobil
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Cars Filter -->
+    <div class="container d-flex flex-row flex-wrap insert-card-cars justify-content-between" style="margin-top: 100px;">
+      <!-- If not found -->
+      <!-- If available -->
+    </div>
+
+    <!-- Footer -->
+    <!-- Row Column content -->
+    <div class="container" style="margin-top: 120px;">
+        <div class="row">
+          <!-- Total per row = 12 -->
+          <div class="col-md-4">
+            <p>Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000</p>
+            <p>binarcarrental@gmail.com</p>
+            <p>081-233-334-806</p>
+          </div>
+          <div class="col-md-2">
+            <p>
+              <a href="#service" class="nav-link fw-bold">Our Services</a>
+            </p>
+            <p>
+              <a href="#whyus" class="nav-link fw-bold">Why Us</a>
+            </p>
+            <p>
+              <a href="#testimonial" class="nav-link fw-bold">Testimonial</a>
+            </p>
+            <p>
+              <a href="#faq" class="nav-link fw-bold">FAQ</a>
+            </p>
+          </div>
+          <div class="col-md-3 mb-3">
+            <p>Connect with us</p>
+            <div class="row">
+              <div class="col-2">
+                <a href="">
+                  <img src="./assets/icon_facebook.png" alt="" />
+                </a>
+              </div>
+              <div class="col-2">
+                <a href="https://www.instagram.com/_dwiimulya02/">
+                  <img src="./assets/icon_instagram.png" alt="" />
+                </a>
+              </div>
+              <div class="col-2">
+                <a href="">
+                  <img src="./assets/icon_twitter.png" alt="" />
+                </a>
+              </div>
+              <div class="col-2">
+                <a href="">
+                  <img src="./assets/icon_mail.png" alt="" />
+                </a>
+              </div>
+              <div class="col-2">
+                <a href="">
+                  <img src="./assets/icon_twitch.png" alt="" />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <p>Copyright Binar 2022</p>
+            <a
+              class="nav-link"
+              href="$#landing"
+              style="width: 100px; height: 34px; background-color: #0d28a6"
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      <script src="scripts/Component.js"></script>
+      <script src="scripts/Car.js"></script>
+      <script src="scripts/App.js"></script>
+      <script src="scripts/Database.js"></script>
+      <script src="scripts/main.js"></script>
+
+      <!-- Start SweetAlert Button -->
+      <script type="text/javascript">
+        const SoonButton = () => {
+          swal("Website sedang dalam pengembangan!", {
+            title: "Oops!",
+            buttons: true,
+            timer: 3000,
+            // icon: "error",
+          });
+        }
+      </script>
+
+      <!-- Script Bootstrap JS -->
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+</body>
+</html>
